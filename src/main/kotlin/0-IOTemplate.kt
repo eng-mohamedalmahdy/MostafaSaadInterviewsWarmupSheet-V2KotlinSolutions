@@ -1,5 +1,6 @@
 import java.io.PrintWriter
 import java.util.*
+import kotlin.math.max
 
 @JvmField
 val INPUT = System.`in`
@@ -36,6 +37,8 @@ val _writer = PrintWriter(OUTPUT, false)
 inline fun output(block: PrintWriter.() -> Unit) {
     _writer.apply(block).flush()
 }
+
+fun Int.maxBy(i: Int) = max(this, i)
 
 fun <T> T.println() = println(this)
 
