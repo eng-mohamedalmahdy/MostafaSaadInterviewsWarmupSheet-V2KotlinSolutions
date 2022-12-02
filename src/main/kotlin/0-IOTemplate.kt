@@ -1,6 +1,6 @@
 import java.io.PrintWriter
 import java.util.*
-import kotlin.math.max
+import kotlin.math.*
 
 @JvmField
 val INPUT = System.`in`
@@ -24,6 +24,7 @@ fun readInt() = read().toInt()
 fun readDouble() = read().toDouble()
 fun readLong() = read().toLong()
 fun readStrings(n: Int) = List(n) { read() }
+fun readChars(n: Int) = List(n) { read()[0] }
 fun readLines(n: Int) = List(n) { readLn() }
 fun readInts(n: Int) = List(n) { read().toInt() }
 fun readIntArray(n: Int) = IntArray(n) { read().toInt() }
@@ -31,6 +32,8 @@ fun readDoubles(n: Int) = List(n) { read().toDouble() }
 fun readDoubleArray(n: Int) = DoubleArray(n) { read().toDouble() }
 fun readLongs(n: Int) = List(n) { read().toLong() }
 fun readLongArray(n: Int) = LongArray(n) { read().toLong() }
+fun readIntPair() = Pair(readInt(), readInt())
+fun readIntPairs(n: Int) = List(n) { readIntPair() }
 
 @JvmField
 val _writer = PrintWriter(OUTPUT, false)
@@ -40,5 +43,19 @@ inline fun output(block: PrintWriter.() -> Unit) {
 
 fun Int.maxBy(i: Int) = max(this, i)
 
+@JvmName("prefixSumInt")
+fun List<Int>.prefixSum(): List<Int> = this.runningFold(0) { acc, e -> acc + e }.drop(1)
+
+@JvmName("prefixSumLong")
+fun List<Long>.prefixSum(): List<Long> = this.runningFold(0L) { acc, e -> acc + e }.drop(1)
+operator fun String.times(i: Int): String {
+    var res = ""
+    repeat(i) { res += this }
+    return res
+}
+
 fun <T> T.println() = println(this)
+fun Double.ceil() = ceil(this)
+fun Double.floor() = floor(this)
+
 
