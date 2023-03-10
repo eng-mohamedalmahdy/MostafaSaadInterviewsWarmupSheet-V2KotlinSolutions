@@ -58,18 +58,3 @@ fun <T> T.println() = println(this)
 fun Double.ceil() = ceil(this)
 fun Double.floor() = floor(this)
 
-
-fun main() {
-
-    val n = readInt()
-    val days = mutableSetOf<Int>()
-    repeat(n) { days += readInt() }
-    var currDay = 1
-    while (days.isNotEmpty()) {
-        if (days.first() == currDay) {
-            print("${days.first()} ")
-            days.remove(days.first())
-        }
-        currDay++
-    }
-}
