@@ -35,6 +35,26 @@ fun readLongArray(n: Int) = LongArray(n) { read().toLong() }
 fun readIntPair() = Pair(readInt(), readInt())
 fun readIntPairs(n: Int) = List(n) { readIntPair() }
 
+fun <T : Comparable<T>> List<T>.lowerBound(key: T): Int {
+    var l = -1
+    var r = size
+    while (l + 1 < r) {
+        val m = l + r ushr 1
+        if (this[m] >= key) r = m else l = m
+    }
+    return r
+}
+
+fun <T : Comparable<T>> List<T>.upperBound(key: T): Int {
+    var l = -1
+    var r: Int = size
+    while (l + 1 < r) {
+        val m = l + r ushr 1
+        if (this[m] <= key) l = m else r = m
+    }
+    return l + 1
+}
+
 @JvmField
 val _writer = PrintWriter(OUTPUT, false)
 inline fun output(block: PrintWriter.() -> Unit) {
