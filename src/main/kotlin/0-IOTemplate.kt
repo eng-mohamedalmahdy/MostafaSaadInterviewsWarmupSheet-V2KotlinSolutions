@@ -89,3 +89,11 @@ fun Boolean.printIfOrElse(ifString: String, elseString: String) {
 }
 
 
+fun main() {
+    val image = readLines(readInt())
+    val graphImage: List<List<Int>> =
+        image.map { line: String -> line.toCharArray().map { number: Char -> number.digitToInt() } }
+
+
+}
+
