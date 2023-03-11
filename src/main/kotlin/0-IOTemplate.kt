@@ -74,7 +74,17 @@ operator fun String.times(i: Int): String {
     return res
 }
 
+fun Boolean.ifElse(ifFunction: () -> Unit, elseFunction: () -> Unit) {
+    if (this) ifFunction() else elseFunction()
+}
+
+fun <T, R> R.map(function: (R) -> T): T = function(this)
 fun <T> T.println() = println(this)
 fun Double.ceil() = ceil(this)
 fun Double.floor() = floor(this)
+
+fun Boolean.printIfOrElse(ifString: String, elseString: String) {
+    if (this) ifString.println() else elseString.println()
+}
+
 
